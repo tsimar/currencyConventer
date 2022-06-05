@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300;1,700&display=swap');
+*{
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+}
+body {
+  background-color: bisque;
+}
+
+.body-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.logo,.logo-container {
+  width: 25px;
+  height: 25px;
+}
+.convert-container,
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  align-items: center;
+  width: 90%;
+}
+.nav-h1{
+    font-size: 1.3em;
+    margin-left: 5px;
+}
+#in-money {
+  width: 20%;
+  padding: 2px 0;
+  height: 10%;
+  border: 0.2;
+ 
+}
+#currency {
+  height: 10%;
+padding: 2px 0;
+}
+#btn,.converter-total {
+  height: 10%;
+  margin-left:1px;
+}
+@media screen and (min-width: 575px) {
+  .convert-container,
+  .nav,
+  #in-money,
+  #currency,
+  #btn,.converter-total {
+    font-size: 1.2em;
+  }
+
+  .logo,.logo-container {
+  width: 40px;
+  height: 40px;
+}
+.nav-h1{
+    font-size: 1.4em;
+
+}
+#in-money {
+
+  padding: 1px 0;
+
+ 
+}
+}
+@media screen and (min-width: 768px) {
+  .convert-container,
+  .nav,
+  #in-money,
+  #currency,
+  #btn,.converter-total {
+    font-size: 1.4em;
+  }
+  .logo,.logo-container {
+  width: 50px;
+  height: 50px;
+}
+.nav-h1{
+    font-size: 1.6em;
+
+}
+#currency {
+ 
+padding: 5px 0;
+}
+#btn {
+padding: 5px 0;
+  margin-left:1px;
+  width: 80px;
+}
+}

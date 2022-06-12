@@ -2,6 +2,8 @@ const input = document.querySelector("#in-money");
 const res1 = document.createElement("p");
 res1.classList.add("converter-total");
 const div = document.querySelector(".convert-container");
+const btn = document.querySelector("#btn");
+const sb = document.querySelector("#currency");
 let date = new Date();
 
 function checkInMoney(money) {
@@ -14,23 +16,19 @@ function checkInMoney(money) {
   }
   return money;
 }
-
+function formatNumber(out) {
+  return (out.rates[0].ask * checkInMoney(parseFloat(input.value))).toFixed(2);
+}
 function convert(url) {
   fetch(url)
     .then((res) => res.json())
     .then((out) => {
-      let formatNumber = (
-        out.rates[0].ask * checkInMoney(parseFloat(input.value))
-      ).toFixed(2);
-      res1.textContent = "to  " + formatNumber + " PLN";
-      console.log(res1.textContent);
+      res1.textContent = `to ${formatNumber(out)} PLN`;
       div.appendChild(res1);
     })
     .catch((err) => console.error(err));
 }
 
-const btn = document.querySelector("#btn");
-const sb = document.querySelector("#currency");
 function addZero(date) {
   if (date < 10) {
     return (date = "0" + date);
@@ -48,8 +46,8 @@ btn.onclick = (event) => {
     day = day - 1;
   }
   day = addZero(day);
-  let dateByConvert = date.getFullYear() + "-" + month + "-" + day;
+  let dateByConvert = `${date.getFullYear()} - ${month} - ${day}`;
 
-  let url = `http://api.nbp.pl/api/exchangerates/rates/c/${sb.value}/${dateByConvert}/?format=json`;
+  let url = `https://api.nbp.pl/api/exchangerates/rates/c/${sb.value}/${dateByConvert}/?format=json`;
   convert(url);
 };

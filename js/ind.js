@@ -37,8 +37,7 @@ function addZero(date) {
   return date;
 }
 
-btn.onclick = (event) => {
-  event.preventDefault();
+btn.onclick = () => {
   let day = date.getDate();
   let month = addZero(date.getMonth() + 1);
   if (date.getDay() === 0) {
@@ -47,7 +46,7 @@ btn.onclick = (event) => {
     day = day - 1;
   }
   day = addZero(day);
-  let dateByConvert = `${date.getFullYear()} - ${month} - ${day}`;
+  let dateByConvert = `${date.getFullYear()}-${month}-${day}`;
 
   let url = `https://api.nbp.pl/api/exchangerates/rates/c/${sb.value}/${dateByConvert}/?format=json`;
   convert(url);

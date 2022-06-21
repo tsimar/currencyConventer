@@ -3,7 +3,7 @@ const res1 = document.createElement("p");
 res1.classList.add("converter-total");
 const div = document.querySelector(".convert-container");
 const btn = document.querySelector("#btn");
-const sb = document.querySelector("#currency");
+const selectOption = document.querySelector("#currency");
 let date = new Date();
 
 function checkInMoney(money) {
@@ -48,6 +48,6 @@ btn.onclick = () => {
   day = addZero(day);
   let dateByConvert = `${date.getFullYear()}-${month}-${day}`;
 
-  let url = `https://api.nbp.pl/api/exchangerates/rates/c/${sb.value}/${dateByConvert}/?format=json`;
+  let url = `https://api.nbp.pl/api/exchangerates/rates/c/${selectOption.value}/${dateByConvert}/?format=json`;
   convert(url);
 };

@@ -7,7 +7,6 @@ const sb = document.querySelector("#currency");
 let date = new Date();
 
 function checkInMoney(money) {
-  console.log(typeof money);
   if (isNaN(money)) {
     input.value = 0;
     return 0;
@@ -16,9 +15,11 @@ function checkInMoney(money) {
   }
   return money;
 }
+
 function formatNumber(out) {
   return (out.rates[0].ask * checkInMoney(parseFloat(input.value))).toFixed(2);
 }
+
 function convert(url) {
   fetch(url)
     .then((res) => res.json())

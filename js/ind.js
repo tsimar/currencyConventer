@@ -38,6 +38,7 @@ function addZero(date) {
 }
 
 btn.onclick = () => {
+  event.preventDefault();
   let day = date.getDate();
   let month = addZero(date.getMonth() + 1);
   if (date.getDay() === 0) {
